@@ -1,71 +1,78 @@
-#include <string>
+#include <std::string>
 #include "student.h"
 #include <iostream>
-using namespace std;
+namespace StudentRoster {
 
 // Constructor
-Student::Student() {
-  studentID = "";
-  firstName = "";
-  lastName = "";
-  emailAddress = "";
-  age = -1;
-  numDays[0] = -1;
-  numDays[1] = -1;
-  numDays[2] = -1;
-}
-
-
+    Student::Student()
+    {
+        id_ = "";
+        first_name_ = "";
+        last_name_ = "";
+        email_address_ = "";
+        age_ = -1;
+        num_days_ = {-1, -1, -1};
+    }
 
 // mutators
-void Student::SetStudentID(string studentID) {
-  this->studentID = studentID;
-}
+    void Student::SetStudentID(std::string student_id)
+    {
+        id_ = studentID;
+    }
 
-void Student::SetFirstName(string firstName) {
-  this->firstName = firstName;
-}
+    void Student::SetFirstName(std::string first_name)
+    {
+        first_name_ = first_name;
+    }
 
-void Student::SetLastName(string lastName) {
-  this->lastName = lastName;
-}
+    void Student::SetLastName(std::string last_name)
+    {
+        last_name_ = last_name;
+    }
 
-void Student::SetEmailAddress(string emailAddress) {
-  this->emailAddress = emailAddress;
-}
+    void Student::SetEmailAddress(std::string email_address)
+    {
+        this->email_address_= email_address;
+    }
 
-void Student::SetAge(int age) {
-  this->age = age;
-}
+    void Student::SetAge(int age)
+    {
+        age_ = age;
+    }
 
-void Student::SetNumDays(int course1, int course2, int course3) {
-  this->numDays[0] = course1;
-  this->numDays[1] = course2;
-  this->numDays[2] = course3;
-}
-
+    void Student::SetNumDays(int course1, int course2, int course3)
+    {
+        num_days_ = {course1, course2, course3};
+    }
 
 // accessors
-string Student::GetStudentID() const {
-  return studentID;
-}
+    std::string Student::GetStudentID() const
+    {
+        return id_;
+    }
 
-string Student::GetFirstName() const {
-  return firstName;
-}
+    std::string Student::GetFirstName() const
+    {
+        return first_name_;
+    }
 
-string Student::GetLastName() const {
-  return lastName;
-}
+    std::string Student::GetLastName() const
+    {
+        return last_name_;
+    }
 
-string Student::GetEmailAddress() const {
-  return emailAddress;
-}
+    std::string Student::GetEmailAddress() const
+    {
+        return email_address_;
+    }
 
-int Student::GetAge() const {
-  return age;
-}
+    int Student::GetAge() const
+    {
+        return age_;
+    }
 
-const int* Student::GetNumDays() const{
-  return numDays;
-}
+    const std::array<int, 3> Student::GetNumDays() const
+    {
+        return num_days_;
+    }
+} // namespace StudentRoster
