@@ -3,13 +3,15 @@
 #include "student.h"
 #include "degree.h"
 
-class NetworkStudent: public Student {
-public:
-  Degree GetDegreeProgram() const;
-  void Print() const;
-  NetworkStudent();
-  void SetDegreeProgram(Degree degreeProgram);
-private:
-  Degree degreeProgram;
-};
+namespace StudentRoster {
+    class NetworkStudent : public Student {
+    public:
+        Degree GetDegreeProgram() const;
+        void Print() const;
+        NetworkStudent();
+        void SetDegreeProgram(Degree degree_program);
+    private:
+        Degree degree_program_;
+    };
+}
 #endif

@@ -1,29 +1,36 @@
 #include "networkStudent.h"
 #include <iostream>
-using namespace std;
+
+namespace StudentRoster {
 
 //constructor
-NetworkStudent::NetworkStudent(): Student() {
+    NetworkStudent::NetworkStudent()
+            :Student()
+    {
 
-}
+    }
 
 // Returns Degree
-Degree NetworkStudent::GetDegreeProgram() const {
-  return this->degreeProgram;
-}
+    Degree NetworkStudent::GetDegreeProgram() const
+    {
+        return degree_program_;
+    }
+
 //Prints all student data
-void NetworkStudent::Print() const {
-  cout << Student::GetStudentID() << "\t";
-  cout << "First Name: " << Student::GetFirstName() <<" \t";
-  cout << "Last Name: " << Student::GetLastName() << " \t";
-  cout << "Age: " << Student::GetAge() << " \t";
-  const int* days;
-  days = Student::GetNumDays();
-  cout << "daysInCourse: {" << days[0] << ", " << days[1] << ", " << days[2] << "} ";
-  cout << "Degree Program: Network" << endl;
-}
+    void NetworkStudent::Print() const
+    {
+        std::cout << Student::GetStudentID() << "\t";
+        std::cout << "First Name: " << Student::GetFirstName() << " \t";
+        std::cout << "Last Name: " << Student::GetLastName() << " \t";
+        std::cout << "Age: " << Student::GetAge() << " \t";
+        const std::array<int, 3> days = Student::GetNumDays();
+        std::cout << "daysInCourse: {" << days[0] << ", " << days[1] << ", " << days[2] << "} ";
+        std::cout << "Degree Program: Network\n";
+    }
 
 // Sets student's degree program
-void NetworkStudent::SetDegreeProgram(Degree degreeProgram) {
-  this->degreeProgram = degreeProgram;
+    void NetworkStudent::SetDegreeProgram(Degree degree_program)
+    {
+        degree_program_ = degree_program;
+    }
 }
