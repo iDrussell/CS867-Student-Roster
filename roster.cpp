@@ -12,12 +12,11 @@
 Roster::~Roster() {
   int i;
 
-  cout << "Deleting Roster" << endl;
+  std::cout << "Deleting Roster\n";
   for(i=currentCount; i > 0; --i) {
-    delete classRosterArray[i-1];
-    currentCount = currentCount - 1;
+      delete classRosterArray[i - 1];
+      currentCount = currentCount - 1;
   }
-  return;
 }
 
 // Returns current count;
@@ -119,7 +118,7 @@ void Roster::PrintAverageDaysInCourse(string studentID) {
   for (i=0; i<currentCount; ++i){
     if(classRosterArray[i]->GetStudentID() == studentID) {
       days = classRosterArray[i]->GetNumDays();
-      cout << "Average days in course for " << studentID << " is " << (*(days)+ *(days+1) + *(days+2)) / 3.0 << endl;
+      std::cout << "Average days in course for " << studentID << " is " << (*(days)+ *(days+1) + *(days+2)) / 3.0 << endl;
     }
   }
   return;
@@ -134,7 +133,7 @@ void Roster::PrintInvalidEmails() {
   for (i=0; i < currentCount; ++i) {
     email = classRosterArray[i]->GetEmailAddress();
     if((email.find(' ')!= string::npos) || (email.find('@') == string::npos) || (email.find('.') == string::npos)) {
-      cout << email << endl;
+      std::cout << email << endl;
     }
   }
   return;
@@ -168,10 +167,10 @@ int main()  {
   Roster* classRoster;
   classRoster = new Roster;
 
-  cout << "Course C867:  Scripting and Programming - Applications" << endl;
-  cout << "Written in: C++" << endl;
-  cout << "Student ID: 000928628" << endl;
-  cout << "Name: Dalton Russell" << endl;
+  std::cout << "Course C867:  Scripting and Programming - Applications" << endl;
+  std::cout << "Written in: C++" << endl;
+  std::cout << "Student ID: 000928628" << endl;
+  std::cout << "Name: Dalton Russell" << endl;
 
   // Student data table
   const string studentData[] =
@@ -243,7 +242,7 @@ int main()  {
     classRoster->Remove("A3");
   }
   catch (runtime_error &excpt) {
-    cout << excpt.what() << endl;
+    std::cout << excpt.what() << endl;
   }
 
   delete classRoster;
