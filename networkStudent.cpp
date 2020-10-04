@@ -11,7 +11,7 @@ namespace StudentRoster {
     }
 
 // Returns Degree
-    Degree NetworkStudent::GetDegreeProgram() const
+    const Degree NetworkStudent::GetDegreeProgram() const
     {
         return degree_program_;
     }
@@ -26,11 +26,5 @@ namespace StudentRoster {
         const std::array<int, 3> days = Student::GetNumDays();
         std::cout << "daysInCourse: {" << days[0] << ", " << days[1] << ", " << days[2] << "} ";
         std::cout << "Degree Program: Network\n";
-    }
-
-// Sets student's degree program
-    void NetworkStudent::SetDegreeProgram(Degree degree_program)
-    {
-        degree_program_ = degree_program;
     }
 }
