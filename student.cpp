@@ -13,11 +13,10 @@ namespace StudentRoster {
         age_ = -1;
         num_days_ = {-1, -1, -1};
     }
-
 // mutators
     void Student::SetStudentID(std::string student_id)
     {
-        id_ = studentID;
+        id_ = student_id;
     }
 
     void Student::SetFirstName(std::string first_name)
@@ -46,22 +45,22 @@ namespace StudentRoster {
     }
 
 // accessors
-    std::string Student::GetStudentID() const
+    const std::string& Student::GetStudentID() const
     {
         return id_;
     }
 
-    std::string Student::GetFirstName() const
+    const std::string& Student::GetFirstName() const
     {
         return first_name_;
     }
 
-    std::string Student::GetLastName() const
+    const std::string& Student::GetLastName() const
     {
         return last_name_;
     }
 
-    std::string Student::GetEmailAddress() const
+    const std::string& Student::GetEmailAddress() const
     {
         return email_address_;
     }
@@ -71,7 +70,7 @@ namespace StudentRoster {
         return age_;
     }
 
-    const std::array<int, 3> Student::GetNumDays() const
+    const std::array<int, 3>& Student::GetNumDays() const
     {
         return num_days_;
     }
