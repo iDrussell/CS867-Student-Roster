@@ -7,7 +7,7 @@ namespace StudentRoster {
             :Student() { }
 
 // Returns  degree program
-    Degree SecurityStudent::GetDegreeProgram() const
+    const Degree SecurityStudent::GetDegreeProgram() const
     {
         return degree_program_;
     }
@@ -24,9 +24,4 @@ namespace StudentRoster {
         std::cout << "Degree Program: Security\n";
     }
 
-// Sets student's degree program
-    void SecurityStudent::SetDegreeProgram(Degree degree_program)
-    {
-        degree_program_ = degree_program;
-    }
 } // namespace StudentRoster
