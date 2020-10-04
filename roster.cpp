@@ -72,7 +72,11 @@ void Roster::PrintAverageDaysInCourse(const std::string& student_id) const {
         }
     }
 }
-
+void Roster::PrintAverageDaysInCourse() const {
+    for (auto student: class_roster_) {
+        PrintAverageDaysInCourse(student->GetStudentID());
+    }
+}
 // Print invalid emails
 void Roster::PrintInvalidEmails() const {
     std::string email;
@@ -100,89 +104,4 @@ void Roster::PrintAll() const {
 
 } // namespace StudentRoster
 
-int main() {
 
-    string iD, first, last, email, temp;
-    int i, age, course1, course2, course3;
-    Degree degree;
-    Roster *classRoster;
-    classRoster = new Roster;
-
-    std::cout << "Course C867:  Scripting and Programming - Applications" << endl;
-    std::cout << "Written in: C++" << endl;
-    std::cout << "Student ID: 000928628" << endl;
-    std::cout << "Name: Dalton Russell" << endl;
-
-    // Student data table
-    const string studentData[] =
-            {"A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
-             "A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
-             "A3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE",
-             "A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
-             "A5,Dalton,Russell,druss52@wgu.edu,25,10,15,20,SOFTWARE"};
-
-    try {
-
-        // This is a VERY ugly way to parse the student data.
-        // Could not find a good way to convert strings of ints
-        // to ints while keeping code down.
-        for (i = 0; i < 5; ++i) {
-
-            istringstream ss(*(studentData + i));
-            getline(ss, iD, ',');
-            getline(ss, first, ',');
-            getline(ss, last, ',');
-            getline(ss, email, ',');
-            getline(ss, temp, ',');
-            age = stoi(temp);
-            getline(ss, temp, ',');
-            course1 = stoi(temp);
-            getline(ss, temp, ',');
-            course2 = stoi(temp);
-            getline(ss, temp, ',');
-            course3 = stoi(temp);
-            getline(ss, temp, ',');
-
-            if (temp == "SECURITY") {
-                degree = SECURITY;
-            } else if (temp == "NETWORK") {
-                degree = NETWORK;
-
-            } else if (temp == "SOFTWARE") {
-                degree = SOFTWARE;
-            } else {
-                throw runtime_error("Invalid Degree");
-            }
-            //Add each student;
-            classRoster->Add(iD, first, last, email, age, course1, course2, course3, degree);
-        }
-
-        // Everything from end of Task document
-        classRoster->PrintAll();
-        classRoster->PrintInvalidEmails();
-
-        for (i = 0; i < (classRoster->GetCount()); ++i) {
-            classRoster->PrintAverageDaysInCourse(classRoster->classRosterArray[i]->GetStudentID());
-
-            // In the directions for the assessment it says to loop through the array and do these
-            // However, PrintByDegreeProgram would return the same thing each time
-            // and Remove would stop the loop after executing the second time (throws exception),
-            // so I execute them outside the for loop. But they are here as
-            // required in the directions.
-
-            // classRoster->PrintByDegreeProgram(SOFTWARE);
-            // classRoster->Remove("A3");
-            // classRoster->Remove("A3");
-        }
-        classRoster->PrintByDegreeProgram(SOFTWARE);
-        classRoster->Remove("A3");
-        classRoster->Remove("A3");
-    } catch (runtime_error &excpt) {
-        std::cout << excpt.what() << endl;
-    }
-
-    delete classRoster;
-
-
-    return 0;
-}

@@ -16,6 +16,7 @@ namespace StudentRoster {
         void Remove(const std::string& student_id);
         void PrintAll() const;
         void PrintAverageDaysInCourse(const std::string& student_id) const;
+        void PrintAverageDaysInCourse() const;
         void PrintInvalidEmails() const;
         void PrintByDegreeProgram(Degree degreeProgram) const;
         ~Roster();
