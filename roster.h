@@ -1,31 +1,28 @@
 #ifndef ROSTER_H
 #define ROSTER_H
-#include "student.h"
+#include "degree.h"
+#include "networkStudent.h"
 #include "securityStudent.h"
 #include "softwareStudent.h"
-#include "networkStudent.h"
-#include "degree.h"
+#include "student.h"
+#include <vector>
 
-class Roster {
-  public:
+namespace StudentRoster {
 
-    void Add(string studentID, string firstName, string lastName, string emailAddress,
-             int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, Degree degreeProgram);
-    void Remove(string studentID);
-    void PrintAll() const;
-    void PrintAverageDaysInCourse(string studentID);
-    void PrintInvalidEmails();
-    void PrintByDegreeProgram(Degree degreeProgram);
-    int GetCount() const;
-    ~Roster();
-
-    // Made these two public because I had to access the
-    // because I had to access the array from
-    // the main function to loop in PrintAverageDaysInCourse
-    int currentCount = 0;
-    Student* classRosterArray[5];
-};
-
+    class Roster {
+    public:
+        void Add(const std::string& student_id, const std::string& first_name, const std::string& last_name, const std::string& email_address,
+                 int age, int days_in_course1, int days_in_course2, int days_in_course3, Degree degree_program);
+        void Remove(const std::string& student_id);
+        void PrintAll() const;
+        void PrintAverageDaysInCourse(const std::string& student_id) const;
+        void PrintInvalidEmails() const;
+        void PrintByDegreeProgram(Degree degreeProgram) const;
+        ~Roster();
+    private:
+        std::vector<Student *> class_roster_;
+    };
+}// namespace StudentRoster
 
 
 #endif
