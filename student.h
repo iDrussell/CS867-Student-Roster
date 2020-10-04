@@ -21,16 +21,15 @@ namespace StudentRoster {
         void SetEmailAddress(std::string emailAddress);
         void SetAge(int age);
         void SetNumDays(int course1, int course2, int course3);
-        virtual void SetDegreeProgram(Degree degreeProgram) = 0;
 
         // accessors
-        std::string GetStudentID() const;
-        std::string GetFirstName() const;
-        std::string GetLastName() const;
-        std::string GetEmailAddress() const;
+        const std::string& GetStudentID() const;
+        const std::string& GetFirstName() const;
+        const std::string& GetLastName() const;
+        const std::string& GetEmailAddress() const;
         int GetAge() const;
-        const std::array<int, 3> GetNumDays() const;
-        virtual Degree GetDegreeProgram() const = 0;
+        const std::array<int, 3>& GetNumDays() const;
+        virtual const Degree GetDegreeProgram() const = 0;
 
         // print
         virtual void Print() const = 0;
