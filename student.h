@@ -13,6 +13,7 @@ namespace StudentRoster {
                 int course3): id_(student_id), first_name_(first_name), last_name_(last_name),
                 email_address_(email_address), age_(age), num_days_({course1, course2, course3})
                 {}
+        virtual ~Student() = default;
 
         // mutators
         void SetStudentID(std::string studentID);
