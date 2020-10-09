@@ -5,6 +5,7 @@
 #include "securityStudent.h"
 #include "softwareStudent.h"
 #include "student.h"
+#include <memory>
 #include <vector>
 
 namespace StudentRoster {
@@ -19,9 +20,8 @@ namespace StudentRoster {
         void PrintAverageDaysInCourse() const;
         void PrintInvalidEmails() const;
         void PrintByDegreeProgram(Degree degreeProgram) const;
-        ~Roster();
     private:
-        std::vector<Student *> class_roster_;
+        std::vector<std::unique_ptr<Student>> class_roster_;
     };
 }// namespace StudentRoster
 
